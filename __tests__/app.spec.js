@@ -8,7 +8,7 @@ describe('App', () => {
     })
 })
 
-describe('Mounted App', () => {
+describe('Mounted App with no parameters', () => {
     const wrapper = mount(App);
 
     it('does exist a wrapper', () => {
@@ -19,15 +19,8 @@ describe('Mounted App', () => {
         expect(wrapper.html()).toContain('What is the sum of the two numbers?')
     })
 
-    // it's also easy to check for the existence of elements
     it('has a button', () => {
         expect(wrapper.find('button').exists()).toBe(true)
-    })
-
-    it('renders correctly with different data', async () => {
-        wrapper.setData({ x1: 5, x2: 10 })
-        await wrapper.vm.$nextTick()
-        expect(wrapper.text()).toContain('10')
     })
 
     it('button click without correct sum', () => {
@@ -36,4 +29,36 @@ describe('Mounted App', () => {
         button.trigger('click')
         expect(wrapper.vm.message).toBe('TRY AGAIN')
     })
+})
+
+describe('Mounted App with parameters', () => {
+    const wrapper = mount(App, {
+        data() {
+          return {
+            x1: 5,
+            x2: 10
+          }
+        }
+      })
+
+    it('renders correctly with different data', async () => {
+        expect(wrapper.text()).toContain('10')
+    })
+})
+
+describe('Snapshot test', () => {
+    const wrapper = mount(App, {
+        data() {
+          return {
+            x1: 37,
+            x2: 99
+          }
+        }
+      }) 
+
+    // Snapshot test
+    it('renders correctly', () => {
+        expect(wrapper.element).toMatchSnapshot()
+    })
+
 })
