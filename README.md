@@ -1,4 +1,4 @@
-# alligator-test
+# vue-testing app
 
 ## Project setup
 ```
