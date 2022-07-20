@@ -14,7 +14,9 @@ exports[`Snapshot test renders correctly 1`] = `
     <div
       class="inline"
     >
-      <p>
+      <p
+        id="numbers"
+      >
         37 + 99 =
       </p>
        
