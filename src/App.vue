@@ -6,7 +6,7 @@
         <div class="inline">
           <p id="numbers">{{ x1 }} + {{ x2 }} =</p> <input v-model="guess"> <button v-on:click="check">Check Answer</button>
         </div>
-        <button v-on:click="refresh">Refresh</button>
+        <button id="refresh" v-on:click="refresh">Refresh</button>
         <p>{{message}}</p>
       </div>
   </div>

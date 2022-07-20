@@ -29,6 +29,16 @@ describe('Mounted App with no parameters', () => {
         button.trigger('click')
         expect(wrapper.vm.message).toBe('TRY AGAIN')
     })
+
+    it('button click check for commas', () => {
+      const button = wrapper.find('#refresh')
+      button.trigger('click')
+      let isWholeNumber = true
+      if (wrapper.vm.x1 % 1 != 0) {
+        isWholeNumber = false;
+      }
+      expect(isWholeNumber).toBeFalsy()
+  })
 })
 
 describe('Mounted App with parameters', () => {
