@@ -19,14 +19,14 @@ exports[`Snapshot test renders correctly 1`] = `
       >
         37 + 99 =
       </p>
-       
       <input />
-       
       <button>
         Check Answer
       </button>
     </div>
-    <button>
+    <button
+      id="button1"
+    >
       Refresh
     </button>
     <p />

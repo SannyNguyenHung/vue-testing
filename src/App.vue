@@ -1,42 +1,44 @@
 <template>
   <div id="app">
-      <div>
-        <h3>Let us test your arithmetic.</h3>
-        <p>What is the sum of the two numbers?</p>
-        <div class="inline">
-          <p id="numbers">{{ x1 }} + {{ x2 }} =</p> <input v-model="guess"> <button v-on:click="check">Check Answer</button>
-        </div>
-        <button v-on:click="refresh">Refresh</button>
-        <p>{{message}}</p>
+    <div>
+      <h3>Let us test your arithmetic.</h3>
+      <p>What is the sum of the two numbers?</p>
+      <div class="inline">
+        <p id="numbers">{{ x1 }} + {{ x2 }} =</p>
+        <input v-model="guess" />
+        <button v-on:click="check">Check Answer</button>
       </div>
+      <button v-on:click="refresh" id="button1">Refresh</button>
+      <p>{{ message }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       x1: Math.ceil(Math.random() * 100),
       x2: Math.ceil(Math.random() * 100),
       guess: "",
-      message: ""
-    }
+      message: "",
+    };
   },
   methods: {
     check() {
       if (this.x1 + this.x2 === parseInt(this.guess)) {
-        this.message = "SUCCESS!"
+        this.message = "SUCCESS!";
       } else {
-        this.message = "TRY AGAIN"
+        this.message = "TRY AGAIN";
       }
     },
     refresh() {
       this.x1 = Math.random() * 100;
       this.x2 = Math.random() * 100;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
